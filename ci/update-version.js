@@ -1,5 +1,4 @@
 const path = require('path');
-const semver = require('semver');
 const { spawn } = require('child_process');
 const fs = require('fs');
 
@@ -8,6 +7,7 @@ const pjsPath = path.resolve(root, 'package.json');
 const pjs = require(pjsPath);
 
 function parseVersion(tag) {
+  const semver = require('semver');
   const { major, minor, prerelease, patch } = semver.parse(tag);
 
   // Describe will give is commits since last tag
